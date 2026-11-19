@@ -1,0 +1,38 @@
+* { box-sizing: border-box; }
+.staff-login-page { position:relative; isolation:isolate; display:grid; min-height:100vh; place-items:center; overflow:hidden; padding:32px 18px 54px; background:radial-gradient(ellipse at 12% 8%,#eee6da 0,transparent 36%),radial-gradient(ellipse at 90% 90%,#e6ebe4 0,transparent 36%),#f7f5f0; color:#263c32; font-family:'DM Sans',Arial,sans-serif; }
+.staff-login-decoration { position:absolute; z-index:-1; width:360px; height:360px; border:1px solid #d9ded4; border-radius:50%; opacity:.55; }
+.staff-login-decoration-one { top:-210px; inset-inline-start:-90px; box-shadow:0 0 0 28px #fff4,0 0 0 58px #fff3; }
+.staff-login-decoration-two { bottom:-260px; inset-inline-end:-75px; width:430px; height:430px; border-color:#e4dcc7; box-shadow:0 0 0 30px #fff3; }
+.staff-login-card { width:min(100%,460px); padding:30px 34px 22px; border:1px solid #e7e3da; border-radius:12px; background:#fffefa; box-shadow:0 22px 65px #263c3214,0 3px 10px #263c3208; }
+.staff-login-brand { display:flex; align-items:center; gap:12px; padding-bottom:22px; border-bottom:1px solid #edf0eb; }
+.staff-login-brand img { width:43px; height:43px; border-radius:10px; object-fit:cover; }
+.staff-login-brand span { display:grid; gap:3px; }
+.staff-login-brand b { color:#263c32; font:600 17px 'Manrope',Arial,sans-serif; letter-spacing:.12em; }
+.staff-login-brand small { color:#8c8e84; font-size:10px; }
+.staff-login-intro { padding:26px 0 20px; text-align:center; }
+.staff-login-icon { display:grid; width:46px; height:46px; margin:0 auto 12px; place-items:center; border:1px solid #e8dfd0; border-radius:12px; background:#faf7ef; color:#a7835b; }
+.staff-login-eyebrow { margin:0 0 6px; color:#a17b53; font-size:9px; font-weight:600; }
+.staff-login-intro h1 { margin:0 0 8px; color:#293e33; font-size:26px; }
+.staff-login-intro>p:last-child { margin:0; color:#798077; font-size:11px; line-height:1.8; }
+.staff-login-api-note,.staff-login-error,.staff-login-success { margin:0 0 13px; border:1px solid #e8e4d5; border-radius:8px; background:#fbf9f2; color:#756747; padding:10px 12px; font-size:10px; line-height:1.7; }
+.staff-login-error { border-color:#f0d2ce; background:#fff7f5; color:#a3473f; }
+.staff-login-success { border-color:#d7eadf; background:#f3faf5; color:#32704f; }
+.staff-login-form { display:grid; gap:9px; }
+.staff-login-form>label { margin-top:5px; color:#4e5d50; font-size:10px; font-weight:600; }
+.staff-login-input-wrap { display:flex; min-width:0; height:45px; align-items:center; gap:10px; padding:0 12px; border:1px solid #dfe3db; border-radius:8px; background:#fff; color:#899389; }
+.staff-login-input-wrap:focus-within { border-color:#82947f; box-shadow:0 0 0 3px #e9f1eb; }
+.staff-login-input-wrap input { width:100%; min-width:0; height:100%; border:0; outline:0; background:transparent; color:#263c32; font-size:12px; }
+.staff-login-input-wrap input::placeholder { color:#a7b1aa; }
+.staff-password-toggle { display:grid; place-items:center; border:0; background:transparent; color:#7f8c80; cursor:pointer; }
+.staff-forgot-link,.staff-back-login { justify-self:start; border:0; background:transparent; color:#9b6a45; font-size:10px; cursor:pointer; }
+.staff-login-submit { display:flex; min-height:45px; align-items:center; justify-content:center; gap:9px; margin-top:7px; border:0; border-radius:7px; background:#263c32; color:#fff; font-size:11px; font-weight:600; cursor:pointer; }
+.staff-login-submit:disabled { cursor:wait; opacity:.7; }
+.staff-preview-access { display:flex; flex-direction:column; gap:6px; margin-top:10px; color:#8b8c83; font-size:9px; }
+.staff-preview-access button { border:0; background:transparent; color:#a46840; cursor:pointer; font:inherit; }
+.staff-login-footer { display:flex; align-items:center; justify-content:center; gap:7px; margin-top:20px; border-top:1px solid #edf0eb; padding-top:14px; color:#8c938b; font-size:9px; }
+.staff-login-footer svg { color:#a7835b; }
+.staff-login-copyright { position:absolute; bottom:18px; color:#979c93; font-size:9px; }
+.staff-login-loading { display:flex; min-height:100vh; flex-direction:column; align-items:center; justify-content:center; gap:12px; background:#f7f5f0; color:#617369; font-size:11px; }
+.staff-login-loading img { width:44px; height:44px; animation:staff-login-pulse 1.1s ease-in-out infinite alternate; }
+@keyframes staff-login-pulse { to { opacity:.55; transform:scale(.96); } }
+@media(max-width:520px) { .staff-login-page { padding:18px 13px 54px; } .staff-login-card { padding:22px 19px 18px; } .staff-login-intro { padding:23px 0 17px; } }

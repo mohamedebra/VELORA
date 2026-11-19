@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+backend/Velora.Api/bin/
+backend/Velora.Api/obj/
+backend/Velora.Api/App_Data/
+backend/Velora.Api/appsettings*.json
+!backend/Velora.Api/appsettings.example.json
