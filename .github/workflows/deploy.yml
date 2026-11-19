@@ -1,0 +1,52 @@
+name: Build and deploy VELORA
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Build storefront
+        run: |
+          npm ci
+          npm run build
+
+      - name: Include storefront in API website
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path backend/Velora.Api/wwwroot -Force | Out-Null
+          Copy-Item -Path dist/* -Destination backend/Velora.Api/wwwroot -Recurse -Force
+
+      - name: Restore API dependencies
+        run: dotnet restore backend/Velora.Api/Velora.Api.csproj
+
+      - name: Publish API and storefront
+        run: dotnet publish backend/Velora.Api/Velora.Api.csproj --configuration Release --no-restore --runtime win-x86 --output ./publish
+
+      - name: Deploy to MonsterASP.NET
+        uses: rasmusbuchholdt/simply-web-deploy@2.1.0
+        with:
+          website-name: ${{ secrets.WEBSITE_NAME }}
+          server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
+          server-username: ${{ secrets.SERVER_USERNAME }}
+          server-password: ${{ secrets.SERVER_PASSWORD }}

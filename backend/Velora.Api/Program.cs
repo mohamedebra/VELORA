@@ -28,6 +28,8 @@ builder.Services.AddSingleton<StoreData>();
 
 var app = builder.Build();
 await app.Services.GetRequiredService<StoreData>().InitializeAsync();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -108,6 +110,7 @@ app.MapPatch("/api/admin/requests/{id}", async (string id, RequestStatusUpdate u
     return result is null ? Results.NotFound(new { message = "الطلب غير موجود." }) : Results.Ok(result);
 }).RequireAuthorization();
 
+app.MapFallbackToFile("index.html");
 app.Run();
 
 public sealed class StoreProduct

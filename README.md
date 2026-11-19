@@ -39,3 +39,7 @@ API endpoints include `GET /api/products`, `GET/PUT /api/admin/products`, `POST 
 npm run build
 npm run preview
 ```
+
+## Free hosting
+
+See [the MonsterASP.NET deployment guide](docs/free-hosting.md) for the current GitHub Actions deployment setup and the free-plan limits.
